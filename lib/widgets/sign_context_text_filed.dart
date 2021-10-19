@@ -2,6 +2,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:replacer/provider/sign_content_text_field_state.dart';
+import 'package:replacer/provider/switch_sign_button_state.dart';
 
 class SignContentTextField extends StatelessWidget {
   const SignContentTextField({Key? key}) : super(key: key);
@@ -12,6 +13,7 @@ class SignContentTextField extends StatelessWidget {
       padding: const EdgeInsets.all(12),
       child: TextField(
         controller: context.watch<SignContentTextFieldState>().getSignContentInputTextController,
+        enabled: context.watch<SwitchSignButtonState>().getButtonState,
         decoration: InputDecoration(
           suffixIcon: InkWell(
             borderRadius: const BorderRadius.all(Radius.circular(25)),

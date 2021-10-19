@@ -11,7 +11,7 @@ class SwitchSignContent extends StatelessWidget {
       title: const Text('Подписывать сообщения'),
       contentPadding: const EdgeInsets.symmetric(horizontal: 16),
       activeColor: Colors.blue,
-      value: context.watch<SwitchSignButtonState>().getButtonNState,
+      value: context.watch<SwitchSignButtonState>().getButtonState,
       onChanged: (value) {
         context.read<SwitchSignButtonState>().updateButtonState(value);
       },
