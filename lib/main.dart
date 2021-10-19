@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:replacer/provider/main_content_text_field_state.dart';
+import 'package:replacer/provider/sign_content_text_field_state.dart';
+import 'package:replacer/provider/switch_sign_button_state.dart';
 import 'package:replacer/router/app_router.dart';
 
 void main() {
@@ -15,6 +17,8 @@ class MyApp extends StatelessWidget {
     return MultiProvider(
       providers: [
         ChangeNotifierProvider(create: (_) => MainContentTextFieldState()),
+        ChangeNotifierProvider(create: (_) => SwitchSignButtonState()),
+        ChangeNotifierProvider(create: (_) => SignContentTextFieldState()),
       ],
       child: MaterialApp(
         debugShowCheckedModeBanner: false,
