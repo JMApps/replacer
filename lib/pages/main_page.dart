@@ -1,12 +1,10 @@
 import 'package:flutter/material.dart';
-import 'package:replacer/provider/main_content_text_field_state.dart';
 import 'package:replacer/widgets/clear_text_button.dart';
 import 'package:replacer/widgets/copy_text_button.dart';
 import 'package:replacer/widgets/main_context_text_filed.dart';
 import 'package:replacer/widgets/paste_text_button.dart';
 import 'package:replacer/widgets/sign_context_text_filed.dart';
 import 'package:replacer/widgets/switch_sign_content.dart';
-import 'package:provider/provider.dart';
 
 class MainPage extends StatelessWidget {
   const MainPage({Key? key}) : super(key: key);
