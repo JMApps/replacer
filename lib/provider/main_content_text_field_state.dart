@@ -13,4 +13,10 @@ class MainContentTextFieldState with ChangeNotifier {
     _mainContentInputText = newText;
     notifyListeners();
   }
+
+  clearAll() {
+    _mainContentInputTextController.clear();
+    _mainContentInputText = _mainContentInputTextController.text;
+    notifyListeners();
+  }
 }
