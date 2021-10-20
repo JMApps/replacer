@@ -12,6 +12,7 @@ class SignContentTextField extends StatelessWidget {
     return Padding(
       padding: const EdgeInsets.all(12),
       child: TextField(
+        textInputAction: TextInputAction.done,
         controller: context.watch<SignContentTextFieldState>().getSignContentInputTextController,
         enabled: context.watch<SwitchSignButtonState>().getButtonState,
         decoration: InputDecoration(

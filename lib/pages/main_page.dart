@@ -23,22 +23,23 @@ class MainPage extends StatelessWidget {
       ),
       body: Scrollbar(
         child: ListView(
-          children: const [
-            MainContentTextField(),
-            Divider(indent: 16, endIndent: 16),
-            SwitchSignContent(),
-            Divider(indent: 16, endIndent: 16),
-            SignContentTextField(),
-          ],
-        ),
-      ),
-      bottomNavigationBar: Container(
-        padding: const EdgeInsets.all(16),
-        child: Row(
-          children: const [
-            PasteTextButton(),
-            CopyTextButton(),
-            ClearTextButton(),
+          children: [
+            const MainContentTextField(),
+            const Divider(indent: 16, endIndent: 16),
+            const SwitchSignContent(),
+            const Divider(indent: 16, endIndent: 16),
+            const SignContentTextField(),
+            const Divider(indent: 16, endIndent: 16),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+              crossAxisAlignment: CrossAxisAlignment.center,
+              children: const [
+                PasteTextButton(),
+                CopyTextButton(),
+                ClearTextButton(),
+              ],
+            ),
+            const Divider(indent: 16, endIndent: 16),
           ],
         ),
       ),

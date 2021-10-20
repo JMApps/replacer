@@ -11,6 +11,7 @@ class MainContentTextField extends StatelessWidget {
       padding: const EdgeInsets.all(12),
       child: Scrollbar(
         child: TextField(
+          textInputAction: TextInputAction.done,
           controller: context.watch<MainContentTextFieldState>().getMainContentInputTextController,
           minLines: 10,
           maxLines: 15,
