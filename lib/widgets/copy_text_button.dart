@@ -13,13 +13,31 @@ class CopyTextButton extends StatelessWidget {
     return TextButton.icon(
       label: const Text('Копировать'),
       icon: const Icon(Icons.copy),
-        onPressed: context.watch<MainContentTextFieldState>().getMainContentInputText.isNotEmpty ? () {
+        onPressed: context.watch<MainContentTextFieldState>().getMainContentInputTextController.text.isNotEmpty ? () {
+        context.read<MainContentTextFieldState>().replaceAllText();
           context.read<SwitchSignButtonState>().getButtonState &&
-              context.read<SignContentTextFieldState>().getSignContentInputText.isNotEmpty ?
-          FlutterClipboard.copy('${context.read<MainContentTextFieldState>().getMainContentInputText}\n\n'
-              '${context.read<SignContentTextFieldState>().getSignContentInputText}') :
-          FlutterClipboard.copy(context.read<MainContentTextFieldState>().getMainContentInputText);
+              context.read<SignContentTextFieldState>().getSignContentInputTextController.text.isNotEmpty ?
+          FlutterClipboard.copy('${context.read<MainContentTextFieldState>().getMainContentInputTextController.text}\n\n'
+              '${context.read<SignContentTextFieldState>().getSignContentInputTextController.text}') :
+          FlutterClipboard.copy(context.read<MainContentTextFieldState>().getMainContentInputTextController.text);
+        _showMessage(context);
         } : null
+    );
+  }
+
+  _showMessage(BuildContext context) {
+    ScaffoldMessenger.of(context).showSnackBar(
+      const SnackBar(
+        elevation: 0,
+        behavior: SnackBarBehavior.floating,
+        margin: EdgeInsets.all(8),
+        backgroundColor: Colors.blue,
+        content: Text(
+          'Скопировано',
+          style: TextStyle(fontSize: 18),
+        ),
+        duration: Duration(milliseconds: 500),
+      ),
     );
   }
 }

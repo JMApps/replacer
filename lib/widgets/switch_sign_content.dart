@@ -8,11 +8,12 @@ class SwitchSignContent extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return SwitchListTile(
-      title: const Text('Подписывать сообщения'),
+      title: const Text('Подписать сообщение'),
       contentPadding: const EdgeInsets.symmetric(horizontal: 16),
       activeColor: Colors.blue,
       value: context.watch<SwitchSignButtonState>().getButtonState,
       onChanged: (value) {
+        context.read<SwitchSignButtonState>().saveStateButton(value);
         context.read<SwitchSignButtonState>().updateButtonState(value);
       },
     );

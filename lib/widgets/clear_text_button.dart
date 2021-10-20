@@ -12,7 +12,24 @@ class ClearTextButton extends StatelessWidget {
       icon: const Icon(Icons.clear),
       onPressed: context.watch<MainContentTextFieldState>().getMainContentInputText.isNotEmpty ? () {
         context.read<MainContentTextFieldState>().clearAll();
+        _showMessage(context);
       } : null
+    );
+  }
+
+  _showMessage(BuildContext context) {
+    ScaffoldMessenger.of(context).showSnackBar(
+      const SnackBar(
+        elevation: 0,
+        behavior: SnackBarBehavior.floating,
+        margin: EdgeInsets.all(8),
+        backgroundColor: Colors.red,
+        content: Text(
+          'Очищено',
+          style: TextStyle(fontSize: 18),
+        ),
+        duration: Duration(milliseconds: 500),
+      ),
     );
   }
 }

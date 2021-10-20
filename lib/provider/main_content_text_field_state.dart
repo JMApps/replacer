@@ -9,6 +9,9 @@ class MainContentTextFieldState with ChangeNotifier {
 
   String get getMainContentInputText => _mainContentInputText;
 
+  final List<String> coded = ['а', 'о', 'с', 'х', 'р', 'у',];
+  final List<String> decoded = ['a', 'o', 'c', 'x', 'p', 'y'];
+
   updateMainContentInputText(String newText) {
     _mainContentInputText = newText;
     notifyListeners();
@@ -17,6 +20,12 @@ class MainContentTextFieldState with ChangeNotifier {
   clearAll() {
     _mainContentInputTextController.clear();
     _mainContentInputText = _mainContentInputTextController.text;
+    notifyListeners();
+  }
+
+  replaceAllText() {
+    Map<String, String> map = Map.fromIterables(coded, decoded);
+    _mainContentInputText = map.entries.fold(_mainContentInputText, (previousValue, element) => previousValue.replaceAll(element.key, element.value));
     notifyListeners();
   }
 }

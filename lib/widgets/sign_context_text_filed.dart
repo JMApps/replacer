@@ -12,7 +12,7 @@ class SignContentTextField extends StatelessWidget {
     return Padding(
       padding: const EdgeInsets.all(12),
       child: TextField(
-        textInputAction: TextInputAction.done,
+        textInputAction: TextInputAction.go,
         controller: context.watch<SignContentTextFieldState>().getSignContentInputTextController,
         enabled: context.watch<SwitchSignButtonState>().getButtonState,
         decoration: InputDecoration(
@@ -24,10 +24,13 @@ class SignContentTextField extends StatelessWidget {
             },
           ),
           border: const OutlineInputBorder(),
-          labelText: 'Введите подпись',
+          labelText: context.watch<SwitchSignButtonState>().getButtonState ? 'Введите подпись' : 'Подпись отключена',
         ),
         onChanged: (text) {
           context.read<SignContentTextFieldState>().updateSignContentInputText(text);
+        },
+        onSubmitted: (text) {
+          context.read<SignContentTextFieldState>().saveLastSignText(text);
         },
       ),
     );
