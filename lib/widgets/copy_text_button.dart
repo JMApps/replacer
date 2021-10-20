@@ -17,9 +17,9 @@ class CopyTextButton extends StatelessWidget {
         context.read<MainContentTextFieldState>().replaceAllText();
           context.read<SwitchSignButtonState>().getButtonState &&
               context.read<SignContentTextFieldState>().getSignContentInputTextController.text.isNotEmpty ?
-          FlutterClipboard.copy('${context.read<MainContentTextFieldState>().getMainContentInputTextController.text}\n\n'
+          FlutterClipboard.copy('${context.read<MainContentTextFieldState>().getMainContentInputText}\n\n'
               '${context.read<SignContentTextFieldState>().getSignContentInputTextController.text}') :
-          FlutterClipboard.copy(context.read<MainContentTextFieldState>().getMainContentInputTextController.text);
+          FlutterClipboard.copy(context.read<MainContentTextFieldState>().getMainContentInputText);
         _showMessage(context);
         } : null
     );
