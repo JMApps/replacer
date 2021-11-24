@@ -1,3 +1,4 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:replacer/provider/main_content_text_field_state.dart';
@@ -16,10 +17,9 @@ class MainContentTextField extends StatelessWidget {
           minLines: 10,
           maxLines: 15,
           decoration: const InputDecoration(
-            border: OutlineInputBorder(),
-            labelText: 'Введите текст',
-            alignLabelWithHint: true
-          ),
+              border: OutlineInputBorder(),
+              labelText: 'Введите текст',
+              alignLabelWithHint: true),
           onChanged: (text) {
             context.read<MainContentTextFieldState>().updateMainContentInputText(text);
           },

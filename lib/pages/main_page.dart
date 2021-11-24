@@ -1,4 +1,7 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
+import 'package:replacer/provider/main_content_text_field_state.dart';
 import 'package:replacer/provider/sign_content_text_field_state.dart';
 import 'package:replacer/provider/switch_sign_button_state.dart';
 import 'package:replacer/widgets/clear_text_button.dart';
@@ -7,7 +10,6 @@ import 'package:replacer/widgets/main_context_text_filed.dart';
 import 'package:replacer/widgets/paste_text_button.dart';
 import 'package:replacer/widgets/sign_context_text_filed.dart';
 import 'package:replacer/widgets/switch_sign_content.dart';
-import 'package:provider/provider.dart';
 
 class MainPage extends StatefulWidget {
   const MainPage({Key? key}) : super(key: key);
@@ -17,7 +19,6 @@ class MainPage extends StatefulWidget {
 }
 
 class _MainPageState extends State<MainPage> {
-
   @override
   void initState() {
     context.read<SwitchSignButtonState>().loadStateButton();
@@ -62,4 +63,3 @@ class _MainPageState extends State<MainPage> {
     );
   }
 }
-
